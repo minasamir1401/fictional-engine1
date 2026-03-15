@@ -1,9 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const sequelize = require('./config/db');
 
+// Config dotenv first
 dotenv.config();
+
+const sequelize = require('./config/db');
 
 const app = express();
 
@@ -39,7 +41,7 @@ const startServer = async () => {
     console.log('⚠️ Running in Local/Mock Mode');
   }
 
-  app.listen(PORT, () => {
+  app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 Server running on port ${PORT}`);
   });
 };
